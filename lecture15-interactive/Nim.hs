@@ -43,7 +43,9 @@ move board row num = [update r n | (r,n) <- zip [1..] board]
 --
 
 putRow :: Int -> Int -> IO ()
-putRow row num = error "putRow: not yet defined"
+putRow row num = do  putStr(show row)
+                     putStr ": "
+                     putStr(concat(replicate num "*"))
 
 -- FIXME: `putBoard` should print the entire board
 --
@@ -58,6 +60,8 @@ putRow row num = error "putRow: not yet defined"
 -- ghci>
 
 putBoard :: Board -> IO ()
+putBoard x:xs = do putRow( x: )
+
 putBoard _ = error "putBoard: not yet defined"
 
 getDigit :: String -> IO Int
